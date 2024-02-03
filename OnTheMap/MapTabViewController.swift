@@ -5,4 +5,12 @@
 //  Created by Chiara Mistrorigo on 31/01/24.
 //
 
-import Foundation
+import UIKit
+
+class MapTabViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        print("MapTabViewController viewDidLoad()")
+    }
+}
+
