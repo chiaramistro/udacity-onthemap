@@ -61,6 +61,9 @@
                                         <rect key="frame" x="178.66666666666669" y="0.0" width="84" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UPZ-N3-sUf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

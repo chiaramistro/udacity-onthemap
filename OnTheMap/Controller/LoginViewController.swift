@@ -52,7 +52,10 @@ class LoginViewController: UIViewController {
         signUpButton.isEnabled = !isLoading
     }
     
-
+    @IBAction func onSignUp(_ sender: Any) {
+        print("onSignUp()")
+        UIApplication.shared.open(UdacityClient.Endpoints.signUp.url, options: [:], completionHandler: nil)
+    }
 
 }
 

@@ -16,12 +16,14 @@ class UdacityClient {
     enum Endpoints {
         static let base = "https://onthemap-api.udacity.com/v1"
         
+        case signUp
         case createSession
         case studentLocations
         case updateStudentLocations(String)
         
         var stringValue: String {
             switch self {
+                case .signUp: return "https://www.udacity.com/account/auth#!/signup"
                 case .createSession: return Endpoints.base + "/session"
                 case .studentLocations: return Endpoints.base + "/StudentLocation"
                 case .updateStudentLocations(let objectId): return Endpoints.base + "/StudentLocation/\(objectId)"
