@@ -25,20 +25,23 @@
                                     <constraint firstAttribute="width" constant="160" id="hQq-yu-t4W"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qRD-Xp-EcM">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qRD-Xp-EcM">
                                 <rect key="frame" x="32" y="380" width="329" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBp-NI-zbr">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mBp-NI-zbr">
                                 <rect key="frame" x="32" y="430" width="329" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8e2-Gk-7Xl">
                                 <rect key="frame" x="157.33333333333334" y="472" width="78.333333333333343" height="34.333333333333314"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="LOG IN">
+                                    <backgroundConfiguration key="background" cornerRadius="8">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
                                     <color key="baseBackgroundColor" name="AccentColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -61,6 +64,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="i4D-Bk-w2y">
+                                <rect key="frame" x="186.66666666666666" y="567" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -69,6 +75,7 @@
                             <constraint firstItem="5bP-SH-X3Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7nx-xG-2cx"/>
                             <constraint firstItem="mBp-NI-zbr" firstAttribute="top" secondItem="qRD-Xp-EcM" secondAttribute="bottom" constant="16" id="98w-tg-k7g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mBp-NI-zbr" secondAttribute="trailing" constant="32" id="Hdq-3H-qvM"/>
+                            <constraint firstItem="i4D-Bk-w2y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mk9-vw-dSv"/>
                             <constraint firstItem="qRD-Xp-EcM" firstAttribute="top" secondItem="Pyc-Fw-I20" secondAttribute="bottom" constant="129" id="QMB-DY-G0x"/>
                             <constraint firstItem="Pyc-Fw-I20" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U8h-c8-Pkq"/>
                             <constraint firstItem="qRD-Xp-EcM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V6h-3s-pnT"/>
@@ -76,13 +83,18 @@
                             <constraint firstItem="8e2-Gk-7Xl" firstAttribute="top" secondItem="mBp-NI-zbr" secondAttribute="bottom" constant="8" id="f8R-Jk-SgM"/>
                             <constraint firstItem="mBp-NI-zbr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="hDq-r3-no1"/>
                             <constraint firstItem="mBp-NI-zbr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hMZ-z9-6iQ"/>
+                            <constraint firstItem="i4D-Bk-w2y" firstAttribute="top" secondItem="5bP-SH-X3Y" secondAttribute="bottom" constant="7.6699999999999999" id="l3O-GL-dDi"/>
                             <constraint firstItem="Pyc-Fw-I20" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="qwn-A5-MG6"/>
                             <constraint firstItem="qRD-Xp-EcM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="sYA-v4-Bbu"/>
                             <constraint firstItem="8e2-Gk-7Xl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vfz-Qt-Zq6"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="i4D-Bk-w2y" id="uMy-ba-aQp"/>
+                        <outlet property="emailField" destination="qRD-Xp-EcM" id="1eH-8q-A54"/>
                         <outlet property="loginButton" destination="8e2-Gk-7Xl" id="ecz-GO-AfI"/>
+                        <outlet property="passwordField" destination="mBp-NI-zbr" id="1dI-Lk-vvd"/>
+                        <outlet property="signUpButton" destination="RFy-K5-z9T" id="jhs-mL-tqq"/>
                         <segue destination="1gP-T5-pXM" kind="presentation" identifier="showHome" id="tPc-L2-gYT"/>
                     </connections>
                 </viewController>
