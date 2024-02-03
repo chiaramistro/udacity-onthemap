@@ -60,17 +60,33 @@
 		E969A8DF2B695E5D0012EFE4 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				E9B670CC2B6AA47D00E97A1D /* TableTabViewController.swift */,
 				E969A8E02B695E5D0012EFE4 /* AppDelegate.swift */,
 				E969A8E22B695E5D0012EFE4 /* SceneDelegate.swift */,
-				E969A8E42B695E5D0012EFE4 /* LoginViewController.swift */,
-				E969A8E62B695E5D0012EFE4 /* Main.storyboard */,
-				E9B670CA2B6AA41000E97A1D /* MapTabViewController.swift */,
-				E969A8E92B695E5E0012EFE4 /* Assets.xcassets */,
-				E969A8EB2B695E5E0012EFE4 /* LaunchScreen.storyboard */,
+				E9EE9D212B6E3E91000D467B /* Controller */,
+				E9EE9D222B6E3EAF000D467B /* Assets */,
 				E969A8EE2B695E5E0012EFE4 /* Info.plist */,
 			);
 			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		E9EE9D212B6E3E91000D467B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E9B670CC2B6AA47D00E97A1D /* TableTabViewController.swift */,
+				E9B670CA2B6AA41000E97A1D /* MapTabViewController.swift */,
+				E969A8E42B695E5D0012EFE4 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E9EE9D222B6E3EAF000D467B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E969A8E62B695E5D0012EFE4 /* Main.storyboard */,
+				E969A8E92B695E5E0012EFE4 /* Assets.xcassets */,
+				E969A8EB2B695E5E0012EFE4 /* LaunchScreen.storyboard */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

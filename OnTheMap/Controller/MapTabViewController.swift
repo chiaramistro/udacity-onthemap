@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import MapKit
 
-class MapTabViewController: UIViewController {
+class MapTabViewController: UIViewController, MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         print("MapTabViewController viewDidLoad()")
+
     }
+    
 }
 
