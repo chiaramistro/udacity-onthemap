@@ -39,6 +39,7 @@ class UdacityClient {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! JSONEncoder().encode(body)
+        print("Data \(String(data: request.httpBody!, encoding: .utf8)!)")
        
         let task = URLSession.shared.dataTask(with: request) { originalData, response, error in
            guard let originalData = originalData else {
@@ -97,4 +98,34 @@ class UdacityClient {
         
         task.resume()
     }
+    
+    // MARK: - Generic POST request method
+    
+    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! JSONEncoder().encode(body)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print("Data not valid")
+                completion(nil, error)
+                return
+            }
+            print("Data \(String(data: data, encoding: .utf8)!)")
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(responseType, from: data)
+                completion(responseObject, nil)
+            } catch {
+                print("Parsing not valid")
+                completion(nil, error)
+            }
+        }
+        
+        task.resume()
+    }
+    
 }
