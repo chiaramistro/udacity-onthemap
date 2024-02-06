@@ -23,12 +23,11 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentTableViewCell") as! StudentTableViewCell
         let student = StudentsModel.sharedInstance().students[(indexPath as NSIndexPath).row]
 
-        cell.textLabel?.text = student.firstName + " " + student.lastName
-
-//        FIXME: custom cell
+        cell.studentName?.text = student.firstName + " " + student.lastName
+        cell.studentUrl?.text = student.mediaURL
 
         return cell
     }
