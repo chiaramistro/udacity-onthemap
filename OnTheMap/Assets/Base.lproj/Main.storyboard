@@ -197,22 +197,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tab2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7C-MX-MKO">
-                                <rect key="frame" x="175" y="411" width="38" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Py-RT-SNe">
+                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StudentCell" id="fJa-ji-BCo">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fJa-ji-BCo" id="PZj-m3-7xy">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Ve-Gf-u37"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Py-RT-SNe" firstAttribute="trailing" secondItem="5Ve-Gf-u37" secondAttribute="trailing" id="6ci-Hz-aJC"/>
+                            <constraint firstItem="4Py-RT-SNe" firstAttribute="bottom" secondItem="5Ve-Gf-u37" secondAttribute="bottom" id="dsS-aB-VBp"/>
+                            <constraint firstItem="4Py-RT-SNe" firstAttribute="leading" secondItem="5Ve-Gf-u37" secondAttribute="leading" id="h2x-c8-gZ1"/>
+                            <constraint firstItem="4Py-RT-SNe" firstAttribute="top" secondItem="5Ve-Gf-u37" secondAttribute="top" id="ylf-Ir-YQV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6ag-wC-hp0"/>
+                    <connections>
+                        <outlet property="tableView" destination="4Py-RT-SNe" id="3fe-UE-Zyv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDP-W6-MkG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="1198"/>
+            <point key="canvasLocation" x="1861.8320610687022" y="1197.8873239436621"/>
         </scene>
     </scenes>
     <resources>
