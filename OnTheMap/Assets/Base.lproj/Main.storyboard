@@ -124,11 +124,11 @@
             </objects>
             <point key="canvasLocation" x="131" y="726"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="2v3-vw-UAE">
             <objects>
                 <navigationController id="Pap-0K-SZd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9ld-Hi-hx8"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" id="9ld-Hi-hx8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PNl-DC-H5o">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -172,11 +172,11 @@
             </objects>
             <point key="canvasLocation" x="1861.8320610687022" y="541.54929577464793"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="qxN-yB-Y8m">
             <objects>
                 <navigationController id="AKS-0z-Uih" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="d7m-mN-1GD"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" id="d7m-mN-1GD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GXG-aU-v3s">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -269,6 +269,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_listview-deselected" width="75" height="50"/>
+        <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="AccentColor">

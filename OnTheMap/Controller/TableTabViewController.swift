@@ -14,8 +14,31 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         print("TableTabViewController viewDidLoad()")
         
+        // Set navigation bar preferences
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(named: "icon_addpin"), style: .plain, target: self, action: #selector(addLocation)),
+            UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: .plain, target: self, action: #selector(refresh)),
+            ]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "LOGOUT", style: .plain, target: self, action: #selector(logout))
+        navigationItem.title = "On The Map"
+        
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    @objc func addLocation() {
+        print("addLocation()")
+        // TODO
+    }
+    
+    @objc func refresh() {
+        print("refresh()")
+        // TODO
+    }
+    
+    @objc func logout() {
+        print("logout()")
+        // TODO
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
