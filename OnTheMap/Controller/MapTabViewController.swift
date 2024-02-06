@@ -14,6 +14,11 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         print("MapTabViewController viewDidLoad()")
+        
+        UdacityClient.getStudentLocations { studentLocations, error in
+            print("getStudentLocations result: \(studentLocations)")
+            StudentsModel.sharedInstance().students = studentLocations
+        }
 
     }
     

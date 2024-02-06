@@ -68,7 +68,7 @@ class UdacityClient {
        task.resume()
     }
     
-    class func getStudentLocations(completion: @escaping ([StudentLocation], Error?) -> Void) {
+    class func getStudentLocations(completion: @escaping ([StudentInformation], Error?) -> Void) {
         print("getStudentLocations()")
         taskForGETRequest(url: Endpoints.studentLocations.url, responseType: StudentLocationResponse.self) { response, error in
             if let response = response {
@@ -80,7 +80,7 @@ class UdacityClient {
     }
     
     // TODO to test
-    class func addNewStudentLocation(newStudentLoc: StudentLocation, completion: @escaping (Bool, Error?) -> Void) {
+    class func addNewStudentLocation(newStudentLoc: StudentInformation, completion: @escaping (Bool, Error?) -> Void) {
         taskForPOSTRequest(url: Endpoints.studentLocations.url, responseType: AddNewStudentLocationResponse.self, body: newStudentLoc) { response, error in
             if let response = response {
                 print("addNewStudentLocation() response \(response)")
@@ -93,7 +93,7 @@ class UdacityClient {
     }
     
     // TODO test
-    class func updateStudentLocation(objectId: String, updatedStudentLoc: StudentLocation, completion: @escaping (Bool, Error?) -> Void) {
+    class func updateStudentLocation(objectId: String, updatedStudentLoc: StudentInformation, completion: @escaping (Bool, Error?) -> Void) {
         var request = URLRequest(url: Endpoints.updateStudentLocations(objectId).url)
         request.httpMethod = "PUT"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
