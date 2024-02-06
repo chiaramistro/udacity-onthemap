@@ -28,7 +28,7 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @objc func addLocation() {
         print("addLocation()")
-        // TODO
+        self.performSegue(withIdentifier: "addLocation", sender: nil)
     }
     
     @objc func refresh() {

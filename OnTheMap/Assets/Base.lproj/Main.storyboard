@@ -166,6 +166,7 @@
                     <navigationItem key="navigationItem" id="EKi-EX-vUB"/>
                     <connections>
                         <outlet property="mapView" destination="1k8-Qu-yv5" id="XTM-6q-ojr"/>
+                        <segue destination="qW2-8g-DaV" kind="show" identifier="addLocation" id="auS-is-zDW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5q8-uW-zyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -261,13 +262,33 @@
                     <navigationItem key="navigationItem" id="6ag-wC-hp0"/>
                     <connections>
                         <outlet property="tableView" destination="4Py-RT-SNe" id="3fe-UE-Zyv"/>
+                        <segue destination="qW2-8g-DaV" kind="show" identifier="addLocation" id="MDl-g0-yrp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDP-W6-MkG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1861.8320610687022" y="1197.8873239436621"/>
         </scene>
+        <!--Add Location View Controller-->
+        <scene sceneID="9fH-uB-yNZ">
+            <objects>
+                <viewController id="qW2-8g-DaV" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="faQ-si-ToK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Vh0-fv-6uC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kwE-x7-ss8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eod-9w-CBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2909" y="859"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MDl-g0-yrp"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
