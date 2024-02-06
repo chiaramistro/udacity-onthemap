@@ -276,14 +276,58 @@
                     <view key="view" contentMode="scaleToFill" id="faQ-si-ToK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="kSA-2Y-sK5">
+                                <rect key="frame" x="121.66666666666669" y="80" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="1J9-UH-FRW"/>
+                                    <constraint firstAttribute="height" constant="150" id="V64-JY-MJ1"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ErC-Bu-Qqe">
+                                <rect key="frame" x="32" y="286" width="329" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BqP-1W-rQX">
+                                <rect key="frame" x="32" y="336" width="329" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqf-AO-vsS">
+                                <rect key="frame" x="122.66666666666667" y="386" width="147.66666666666663" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="FIND LOCATION"/>
+                                <connections>
+                                    <action selector="onFindLocation:" destination="qW2-8g-DaV" eventType="touchUpInside" id="VHb-Gd-mtv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Vh0-fv-6uC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BqP-1W-rQX" firstAttribute="top" secondItem="ErC-Bu-Qqe" secondAttribute="bottom" constant="16" id="BmT-5y-3jX"/>
+                            <constraint firstItem="BqP-1W-rQX" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="LB2-yc-Oed"/>
+                            <constraint firstItem="Vh0-fv-6uC" firstAttribute="trailing" secondItem="BqP-1W-rQX" secondAttribute="trailing" constant="32" id="P4c-UX-HFe"/>
+                            <constraint firstItem="ErC-Bu-Qqe" firstAttribute="top" secondItem="kSA-2Y-sK5" secondAttribute="bottom" constant="56" id="Sgk-WC-2Ui"/>
+                            <constraint firstItem="Vh0-fv-6uC" firstAttribute="trailing" secondItem="ErC-Bu-Qqe" secondAttribute="trailing" constant="32" id="b4i-dR-Kfo"/>
+                            <constraint firstItem="ErC-Bu-Qqe" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="bZD-qC-6Np"/>
+                            <constraint firstItem="kSA-2Y-sK5" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="d4K-xg-jhy"/>
+                            <constraint firstItem="kSA-2Y-sK5" firstAttribute="top" secondItem="Vh0-fv-6uC" secondAttribute="top" constant="24" id="j8J-yz-iqi"/>
+                            <constraint firstItem="nqf-AO-vsS" firstAttribute="top" secondItem="BqP-1W-rQX" secondAttribute="bottom" constant="16" id="jst-gH-E29"/>
+                            <constraint firstItem="ErC-Bu-Qqe" firstAttribute="leading" secondItem="Vh0-fv-6uC" secondAttribute="leading" constant="32" id="kDZ-58-9fT"/>
+                            <constraint firstItem="nqf-AO-vsS" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="nht-8K-7TJ"/>
+                            <constraint firstItem="BqP-1W-rQX" firstAttribute="leading" secondItem="Vh0-fv-6uC" secondAttribute="leading" constant="32" id="oei-3Z-kPI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kwE-x7-ss8"/>
+                    <connections>
+                        <outlet property="locationField" destination="ErC-Bu-Qqe" id="lPv-5A-53M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eod-9w-CBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909" y="859"/>
+            <point key="canvasLocation" x="2907.6335877862593" y="858.45070422535218"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -293,6 +337,7 @@
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
+        <image name="icon_world" width="52" height="67"/>
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
