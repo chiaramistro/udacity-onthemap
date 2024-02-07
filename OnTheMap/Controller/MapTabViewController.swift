@@ -44,7 +44,15 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
     
     @objc func logout() {
         print("logout()")
-        // TODO
+        UdacityClient.endSession { logoutSuccess, error in
+            DispatchQueue.main.async {
+                if (logoutSuccess) {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    self.showFailureAlert(message: "Some error occurred during logout")
+                }
+            }
+        }
     }
     
     func handleStudentLocations(studentLocations: [StudentInformation], error: Error?) {
@@ -54,6 +62,12 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
         self.loadLocations()
     }
 
+    func showFailureAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func loadLocations() {
         var annotations = [MKPointAnnotation]()
         

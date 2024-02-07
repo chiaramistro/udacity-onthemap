@@ -40,7 +40,21 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @objc func logout() {
         print("logout()")
-        // TODO
+        UdacityClient.endSession { logoutSuccess, error in
+            DispatchQueue.main.async {
+                if (logoutSuccess) {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    self.showFailureAlert(message: "Some error occurred during logout")
+                }
+            }
+        }
+    }
+    
+    func showFailureAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Table view delegate methods

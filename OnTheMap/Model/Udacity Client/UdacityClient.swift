@@ -17,14 +17,14 @@ class UdacityClient {
         static let base = "https://onthemap-api.udacity.com/v1"
         
         case signUp
-        case createSession
+        case handleSession
         case studentLocations
         case updateStudentLocations(String)
         
         var stringValue: String {
             switch self {
                 case .signUp: return "https://www.udacity.com/account/auth#!/signup"
-                case .createSession: return Endpoints.base + "/session"
+                case .handleSession: return Endpoints.base + "/session"
                 case .studentLocations: return Endpoints.base + "/StudentLocation"
                 case .updateStudentLocations(let objectId): return Endpoints.base + "/StudentLocation/\(objectId)"
             }
@@ -38,7 +38,7 @@ class UdacityClient {
     
     class func createSession(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let body = SessionRequest(udacity: SessionRequestData(username: username, password: password))
-        var request = URLRequest(url: Endpoints.createSession.url)
+        var request = URLRequest(url: Endpoints.handleSession.url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -58,6 +58,41 @@ class UdacityClient {
            do {
                let responseObject = try decoder.decode(SessionResponse.self, from: data)
                Auth.sessionId = responseObject.session.id
+               completion(true, nil)
+           } catch {
+               print("Parsing not valid")
+               completion(false, error)
+           }
+       }
+       
+       task.resume()
+    }
+    
+    class func endSession(completion: @escaping (Bool, Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.handleSession.url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+       
+        let task = URLSession.shared.dataTask(with: request) { originalData, response, error in
+           guard let originalData = originalData else {
+               print("Data not valid")
+               completion(false, error)
+               return
+           }
+            let range = 5..<originalData.count
+            let data = originalData.subdata(in: range)
+            print("Data \(String(data: data, encoding: .utf8)!)")
+           let decoder = JSONDecoder()
+           do {
+               let _ = try decoder.decode(EndSessionResponse.self, from: data)
+               Auth.sessionId = ""
                completion(true, nil)
            } catch {
                print("Parsing not valid")
