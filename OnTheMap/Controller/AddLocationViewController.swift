@@ -44,6 +44,7 @@ class AddLocationViewController: UIViewController {
                 self.setLoadingState(false)
                 let detailController = self.storyboard!.instantiateViewController(withIdentifier: "LocationDetailsViewController") as! LocationDetailsViewController
                 detailController.locationName = self.locationField?.text ?? "New location"
+                detailController.locationLink = self.linkField?.text ?? ""
                 detailController.coordinates = coordinates
                 self.navigationController!.pushViewController(detailController, animated: true)
            }

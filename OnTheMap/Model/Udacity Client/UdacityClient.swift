@@ -11,6 +11,7 @@ class UdacityClient {
     
     struct Auth {
         static var sessionId = ""
+        static var userId = ""
     }
     
     enum Endpoints {
@@ -20,6 +21,7 @@ class UdacityClient {
         case handleSession
         case studentLocations
         case updateStudentLocations(String)
+        case userData(String)
         
         var stringValue: String {
             switch self {
@@ -27,6 +29,7 @@ class UdacityClient {
                 case .handleSession: return Endpoints.base + "/session"
                 case .studentLocations: return Endpoints.base + "/StudentLocation"
                 case .updateStudentLocations(let objectId): return Endpoints.base + "/StudentLocation/\(objectId)"
+                case .userData(let userId): return Endpoints.base + "/users/\(userId)"
             }
         }
         
@@ -58,6 +61,7 @@ class UdacityClient {
            do {
                let responseObject = try decoder.decode(SessionResponse.self, from: data)
                Auth.sessionId = responseObject.session.id
+               Auth.userId = responseObject.account.key
                completion(true, nil)
            } catch {
                print("Parsing not valid")
@@ -93,6 +97,7 @@ class UdacityClient {
            do {
                let _ = try decoder.decode(EndSessionResponse.self, from: data)
                Auth.sessionId = ""
+               Auth.userId = ""
                completion(true, nil)
            } catch {
                print("Parsing not valid")
@@ -101,6 +106,30 @@ class UdacityClient {
        }
        
        task.resume()
+    }
+    
+    class func getUserData(userId: String, completion: @escaping (Bool, Error?) -> Void) {
+        let task = URLSession.shared.dataTask(with: Endpoints.userData(userId).url) { originalData, response, error in
+            guard let originalData = originalData else {
+                print("Data not valid")
+                completion(false, error)
+                return
+            }
+            let range = 5..<originalData.count
+            let data = originalData.subdata(in: range)
+            print("Data \(String(data: data, encoding: .utf8)!)")
+            let decoder = JSONDecoder()
+            do {
+                let userData = try decoder.decode(User.self, from: data)
+                UserModel.sharedInstance().user = userData
+                completion(true, nil)
+            } catch {
+                print("Parsing not valid")
+                completion(false, error)
+            }
+        }
+        
+        task.resume()
     }
     
     class func getStudentLocations(completion: @escaping ([StudentInformation], Error?) -> Void) {
@@ -114,7 +143,6 @@ class UdacityClient {
         }
     }
     
-    // TODO to test
     class func addNewStudentLocation(newStudentLoc: StudentInformation, completion: @escaping (Bool, Error?) -> Void) {
         taskForPOSTRequest(url: Endpoints.studentLocations.url, responseType: AddNewStudentLocationResponse.self, body: newStudentLoc) { response, error in
             if let response = response {

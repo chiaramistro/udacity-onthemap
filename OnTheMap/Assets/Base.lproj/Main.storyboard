@@ -358,6 +358,9 @@
                                     <action selector="onFinish:" destination="z67-s2-f9T" eventType="touchUpInside" id="GBq-0C-htl"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wed-n7-arP">
+                                <rect key="frame" x="186.66666666666666" y="724" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k5l-hh-4B5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -367,11 +370,14 @@
                             <constraint firstItem="Bou-rq-M5P" firstAttribute="trailing" secondItem="k5l-hh-4B5" secondAttribute="trailing" id="CJj-lz-rft"/>
                             <constraint firstItem="Bou-rq-M5P" firstAttribute="leading" secondItem="k5l-hh-4B5" secondAttribute="leading" id="Szl-8t-9qb"/>
                             <constraint firstItem="Bou-rq-M5P" firstAttribute="bottom" secondItem="k5l-hh-4B5" secondAttribute="bottom" id="Vwe-qo-5El"/>
+                            <constraint firstItem="Ms2-Xi-6r7" firstAttribute="top" secondItem="wed-n7-arP" secondAttribute="bottom" constant="8" id="Y85-Ly-eLv"/>
                             <constraint firstItem="Ms2-Xi-6r7" firstAttribute="centerX" secondItem="1zm-dH-HAi" secondAttribute="centerX" id="jb8-WM-hrq"/>
+                            <constraint firstItem="wed-n7-arP" firstAttribute="centerX" secondItem="1zm-dH-HAi" secondAttribute="centerX" id="pG3-Yd-FLH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jkl-ru-WPK"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="wed-n7-arP" id="26F-0t-t5X"/>
                         <outlet property="finishButton" destination="Ms2-Xi-6r7" id="gmo-Ue-pp9"/>
                         <outlet property="mapView" destination="Bou-rq-M5P" id="h1F-6n-iSb"/>
                     </connections>
