@@ -302,14 +302,19 @@
                                     <action selector="onFindLocation:" destination="qW2-8g-DaV" eventType="touchUpInside" id="VHb-Gd-mtv"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9eO-ib-GzF">
+                                <rect key="frame" x="186.66666666666666" y="429" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Vh0-fv-6uC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9eO-ib-GzF" firstAttribute="top" secondItem="nqf-AO-vsS" secondAttribute="bottom" constant="8" id="B1Q-8B-LBz"/>
                             <constraint firstItem="BqP-1W-rQX" firstAttribute="top" secondItem="ErC-Bu-Qqe" secondAttribute="bottom" constant="16" id="BmT-5y-3jX"/>
                             <constraint firstItem="BqP-1W-rQX" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="LB2-yc-Oed"/>
                             <constraint firstItem="Vh0-fv-6uC" firstAttribute="trailing" secondItem="BqP-1W-rQX" secondAttribute="trailing" constant="32" id="P4c-UX-HFe"/>
                             <constraint firstItem="ErC-Bu-Qqe" firstAttribute="top" secondItem="kSA-2Y-sK5" secondAttribute="bottom" constant="56" id="Sgk-WC-2Ui"/>
+                            <constraint firstItem="9eO-ib-GzF" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="SyN-1I-37v"/>
                             <constraint firstItem="Vh0-fv-6uC" firstAttribute="trailing" secondItem="ErC-Bu-Qqe" secondAttribute="trailing" constant="32" id="b4i-dR-Kfo"/>
                             <constraint firstItem="ErC-Bu-Qqe" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="bZD-qC-6Np"/>
                             <constraint firstItem="kSA-2Y-sK5" firstAttribute="centerX" secondItem="faQ-si-ToK" secondAttribute="centerX" id="d4K-xg-jhy"/>
@@ -322,6 +327,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="kwE-x7-ss8"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="9eO-ib-GzF" id="q1Z-C6-4Wo"/>
+                        <outlet property="findLocationButton" destination="nqf-AO-vsS" id="Bd0-Ar-Gv6"/>
+                        <outlet property="linkField" destination="BqP-1W-rQX" id="ybI-ak-wfX"/>
                         <outlet property="locationField" destination="ErC-Bu-Qqe" id="lPv-5A-53M"/>
                     </connections>
                 </viewController>
@@ -331,7 +339,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="auS-is-zDW"/>
+        <segue reference="MDl-g0-yrp"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_listview-deselected" width="75" height="50"/>
