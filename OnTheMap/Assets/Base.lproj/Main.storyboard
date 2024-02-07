@@ -331,11 +331,37 @@
                         <outlet property="findLocationButton" destination="nqf-AO-vsS" id="Bd0-Ar-Gv6"/>
                         <outlet property="linkField" destination="BqP-1W-rQX" id="ybI-ak-wfX"/>
                         <outlet property="locationField" destination="ErC-Bu-Qqe" id="lPv-5A-53M"/>
+                        <segue destination="z67-s2-f9T" kind="show" identifier="showMap" id="UWi-SA-w1A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eod-9w-CBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2907.6335877862593" y="858.45070422535218"/>
+        </scene>
+        <!--Location Details View Controller-->
+        <scene sceneID="CuR-29-X0P">
+            <objects>
+                <viewController storyboardIdentifier="LocationDetailsViewController" id="z67-s2-f9T" customClass="LocationDetailsViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1zm-dH-HAi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lv-vc-01c">
+                                <rect key="frame" x="175" y="411" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="k5l-hh-4B5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jkl-ru-WPK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XcX-Yz-M9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3676" y="858"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

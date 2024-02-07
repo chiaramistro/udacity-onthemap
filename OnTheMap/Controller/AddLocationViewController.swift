@@ -38,9 +38,11 @@ class AddLocationViewController: UIViewController {
                 return
             }
             if let placemark = placemarks?.first {
-                let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                let coordinates: CLLocationCoordinate2D = placemark.location!.coordinate
                 self.setLoadingState(false)
-                // TODO show coordinates on map
+                let detailController = self.storyboard!.instantiateViewController(withIdentifier: "LocationDetailsViewController") as! LocationDetailsViewController
+                detailController.coordinates = coordinates
+                self.navigationController!.pushViewController(detailController, animated: true)
            }
          })
     }
