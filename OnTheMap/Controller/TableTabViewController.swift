@@ -74,8 +74,15 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tableView didSelectRowAt()")
-        // FIXME on click on cell
+        let student = StudentsModel.sharedInstance().students[(indexPath as NSIndexPath).row]
+        if let toOpen = URL(string: student.mediaURL) {
+            if UIApplication.shared.canOpenURL(toOpen as URL) {
+                print("The url is valid")
+                UIApplication.shared.open(toOpen, options: [:], completionHandler: nil)
+            } else {
+                print("The url is not valid")
+            }
+        }
     }
 
 }

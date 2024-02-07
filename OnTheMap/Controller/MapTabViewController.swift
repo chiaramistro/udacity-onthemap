@@ -112,8 +112,15 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            if let toOpen = view.annotation?.subtitle! {
-                UIApplication.shared.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
+            if let subtitle = view.annotation?.subtitle! {
+                if let toOpen = URL(string: subtitle) {
+                    if UIApplication.shared.canOpenURL(toOpen as URL) {
+                        print("The url is valid")
+                        UIApplication.shared.open(toOpen, options: [:], completionHandler: nil)
+                    } else {
+                        print("The url is not valid")
+                    }
+                }
             }
         }
     }
