@@ -346,22 +346,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lv-vc-01c">
-                                <rect key="frame" x="175" y="411" width="36" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bou-rq-M5P">
+                                <rect key="frame" x="0.0" y="56" width="393" height="747"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ms2-Xi-6r7">
+                                <rect key="frame" x="158.33333333333334" y="752" width="76.333333333333343" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="FINISH"/>
+                                <connections>
+                                    <action selector="onFinish:" destination="z67-s2-f9T" eventType="touchUpInside" id="GBq-0C-htl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k5l-hh-4B5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bou-rq-M5P" firstAttribute="top" secondItem="k5l-hh-4B5" secondAttribute="top" id="7MF-zt-TW6"/>
+                            <constraint firstItem="k5l-hh-4B5" firstAttribute="bottom" secondItem="Ms2-Xi-6r7" secondAttribute="bottom" constant="16" id="ASx-41-uaF"/>
+                            <constraint firstItem="Bou-rq-M5P" firstAttribute="trailing" secondItem="k5l-hh-4B5" secondAttribute="trailing" id="CJj-lz-rft"/>
+                            <constraint firstItem="Bou-rq-M5P" firstAttribute="leading" secondItem="k5l-hh-4B5" secondAttribute="leading" id="Szl-8t-9qb"/>
+                            <constraint firstItem="Bou-rq-M5P" firstAttribute="bottom" secondItem="k5l-hh-4B5" secondAttribute="bottom" id="Vwe-qo-5El"/>
+                            <constraint firstItem="Ms2-Xi-6r7" firstAttribute="centerX" secondItem="1zm-dH-HAi" secondAttribute="centerX" id="jb8-WM-hrq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jkl-ru-WPK"/>
+                    <connections>
+                        <outlet property="finishButton" destination="Ms2-Xi-6r7" id="gmo-Ue-pp9"/>
+                        <outlet property="mapView" destination="Bou-rq-M5P" id="h1F-6n-iSb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XcX-Yz-M9y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3676" y="858"/>
+            <point key="canvasLocation" x="3675.5725190839694" y="857.74647887323943"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

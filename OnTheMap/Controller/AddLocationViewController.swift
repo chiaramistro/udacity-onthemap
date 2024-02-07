@@ -19,6 +19,8 @@ class AddLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         print("AddLocationViewController viewDidLoad()")
+        
+        navigationItem.title = "Add Location"
     }
     
     @IBAction func onFindLocation(_ sender: Any) {
@@ -41,6 +43,7 @@ class AddLocationViewController: UIViewController {
                 let coordinates: CLLocationCoordinate2D = placemark.location!.coordinate
                 self.setLoadingState(false)
                 let detailController = self.storyboard!.instantiateViewController(withIdentifier: "LocationDetailsViewController") as! LocationDetailsViewController
+                detailController.locationName = self.locationField?.text ?? "New location"
                 detailController.coordinates = coordinates
                 self.navigationController!.pushViewController(detailController, animated: true)
            }
