@@ -15,6 +15,8 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         print("MapTabViewController viewDidLoad()")
         
+        mapView.delegate = self
+        
         // Set navigation bar preferences
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(image: UIImage(named: "icon_addpin"), style: .plain, target: self, action: #selector(addLocation)),
@@ -24,10 +26,11 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
         navigationItem.title = "On The Map"
         
         UdacityClient.getStudentLocations { studentLocations, error in
-            print("getStudentLocations result: \(studentLocations)")
-            StudentsModel.sharedInstance().students = studentLocations
+            self.handleStudentLocations(studentLocations: studentLocations, error: error)
         }
     }
+    
+    // MARK: - Navigation functions
     
     @objc func addLocation() {
         print("addLocation()")
@@ -43,7 +46,62 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
         print("logout()")
         // TODO
     }
+    
+    func handleStudentLocations(studentLocations: [StudentInformation], error: Error?) {
+        // FIXME display error
+        print("getStudentLocations result: \(studentLocations)")
+        StudentsModel.sharedInstance().students = studentLocations
+        self.loadLocations()
+    }
 
+    func loadLocations() {
+        var annotations = [MKPointAnnotation]()
+        
+        for studentInfo in StudentsModel.sharedInstance().students {
+            let lat = CLLocationDegrees(studentInfo.latitude)
+            let long = CLLocationDegrees(studentInfo.longitude)
+            let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            
+            let first = studentInfo.firstName
+            let last = studentInfo.lastName
+            let mediaURL = studentInfo.mediaURL
+            
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            annotation.title = "\(first) \(last)"
+            annotation.subtitle = mediaURL
+
+            annotations.append(annotation)
+        }
+        
+        mapView.addAnnotations(annotations)
+    }
+    
+    // MARK: - Map view delegate methods
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKMarkerAnnotationView
+
+        if pinView == nil {
+            pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.glyphTintColor = .white
+            pinView!.markerTintColor = .red
+            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        } else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            if let toOpen = view.annotation?.subtitle! {
+                UIApplication.shared.open(URL(string: toOpen)!, options: [:], completionHandler: nil)
+            }
+        }
     }
     
 }

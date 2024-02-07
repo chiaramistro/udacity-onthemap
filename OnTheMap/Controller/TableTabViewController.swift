@@ -26,6 +26,8 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
     }
     
+    // MARK: - Navigation functions
+    
     @objc func addLocation() {
         print("addLocation()")
         self.performSegue(withIdentifier: "addLocation", sender: nil)
@@ -40,6 +42,8 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
         print("logout()")
         // TODO
     }
+    
+    // MARK: - Table view delegate methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return StudentsModel.sharedInstance().students.count
