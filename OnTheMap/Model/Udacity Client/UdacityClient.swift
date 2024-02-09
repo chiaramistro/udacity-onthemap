@@ -28,7 +28,7 @@ class UdacityClient {
                 case .signUp: return "https://www.udacity.com/account/auth#!/signup"
                 case .handleSession: return Endpoints.base + "/session"
                 case .studentLocations: return Endpoints.base + "/StudentLocation"
-                case .updateStudentLocations(let objectId): return Endpoints.base + "/StudentLocation/\(objectId)"
+                case .updateStudentLocations(let objectId): return Endpoints.base + "/StudentLocation/\(objectId)?limit=100&order=-updatedAt"
                 case .userData(let userId): return Endpoints.base + "/users/\(userId)"
             }
         }
