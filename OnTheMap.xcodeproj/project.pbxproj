@@ -17,8 +17,7 @@
 		E969A8EA2B695E5E0012EFE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E969A8E92B695E5E0012EFE4 /* Assets.xcassets */; };
 		E969A8ED2B695E5E0012EFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E969A8EB2B695E5E0012EFE4 /* LaunchScreen.storyboard */; };
 		E96BD2182B73CC7E0022BBEC /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BD2172B73CC7E0022BBEC /* LocationDetailsViewController.swift */; };
-		E96BD21A2B73D4EB0022BBEC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BD2192B73D4EB0022BBEC /* UserModel.swift */; };
-		E96BD21C2B73D5090022BBEC /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BD21B2B73D5090022BBEC /* UserData.swift */; };
+		E96BD21C2B73D5090022BBEC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BD21B2B73D5090022BBEC /* User.swift */; };
 		E9B670CB2B6AA41000E97A1D /* MapTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B670CA2B6AA41000E97A1D /* MapTabViewController.swift */; };
 		E9B670CD2B6AA47D00E97A1D /* TableTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B670CC2B6AA47D00E97A1D /* TableTabViewController.swift */; };
 		E9EE9D242B6E406F000D467B /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE9D232B6E406F000D467B /* StudentInformation.swift */; };
@@ -43,8 +42,7 @@
 		E969A8EC2B695E5E0012EFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E969A8EE2B695E5E0012EFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E96BD2172B73CC7E0022BBEC /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
-		E96BD2192B73D4EB0022BBEC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		E96BD21B2B73D5090022BBEC /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		E96BD21B2B73D5090022BBEC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E9B670CA2B6AA41000E97A1D /* MapTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabViewController.swift; sourceTree = "<group>"; };
 		E9B670CC2B6AA47D00E97A1D /* TableTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTabViewController.swift; sourceTree = "<group>"; };
 		E9EE9D232B6E406F000D467B /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
@@ -135,8 +133,7 @@
 			children = (
 				E9EE9D232B6E406F000D467B /* StudentInformation.swift */,
 				E9229C762B72700900AA6DCF /* StudentsModel.swift */,
-				E96BD2192B73D4EB0022BBEC /* UserModel.swift */,
-				E96BD21B2B73D5090022BBEC /* UserData.swift */,
+				E96BD21B2B73D5090022BBEC /* User.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -247,11 +244,10 @@
 				E9EE9D2F2B6E46CC000D467B /* SessionRequest.swift in Sources */,
 				E9B670CB2B6AA41000E97A1D /* MapTabViewController.swift in Sources */,
 				E9229C7B2B7297FD00AA6DCF /* AddLocationViewController.swift in Sources */,
-				E96BD21A2B73D4EB0022BBEC /* UserModel.swift in Sources */,
 				E9229C772B72700900AA6DCF /* StudentsModel.swift in Sources */,
 				E9B670CD2B6AA47D00E97A1D /* TableTabViewController.swift in Sources */,
 				E969A8E12B695E5D0012EFE4 /* AppDelegate.swift in Sources */,
-				E96BD21C2B73D5090022BBEC /* UserData.swift in Sources */,
+				E96BD21C2B73D5090022BBEC /* User.swift in Sources */,
 				E9EE9D292B6E41D7000D467B /* UdacityClient.swift in Sources */,
 				E96BD2182B73CC7E0022BBEC /* LocationDetailsViewController.swift in Sources */,
 				E9229C792B72781E00AA6DCF /* StudentTableViewCell.swift in Sources */,

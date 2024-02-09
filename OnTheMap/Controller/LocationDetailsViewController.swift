@@ -65,11 +65,10 @@ class LocationDetailsViewController: UIViewController, MKMapViewDelegate {
         print("onFinish()")
         setLoadingState(true)
         
-        UdacityClient.getUserData(userId: UdacityClient.Auth.userId) { success, error in
-            print("getUserData() success \(success)")
+        UdacityClient.getUserData(userId: UdacityClient.Auth.userId) { userData, error in
             DispatchQueue.main.async {
-                if (success) {
-                    self.proceedWithAddingLocation()
+                if (userData != nil) {
+                    self.proceedWithAddingLocation(user: userData!)
                 } else {
                     // FIXME custom response error
                     self.presentAlert(message: "Some error occurred while retrieving user info")
@@ -77,9 +76,9 @@ class LocationDetailsViewController: UIViewController, MKMapViewDelegate {
             }
         }
     }
-    
-    func proceedWithAddingLocation() {
-        let newStudentInfo = StudentInformation(objectId: "", uniqueKey: "", firstName: UserModel.sharedInstance().user.firstName, lastName: UserModel.sharedInstance().user.lastName, mapString: locationName, mediaURL: locationLink, latitude: Float(coordinates.latitude), longitude: Float(coordinates.longitude), createdAt: "", updatedAt: "")
+
+    func proceedWithAddingLocation(user: User) {
+        let newStudentInfo = StudentInformation(objectId: "", uniqueKey: "", firstName: user.firstName, lastName: user.lastName, mapString: locationName, mediaURL: locationLink, latitude: Float(coordinates.latitude), longitude: Float(coordinates.longitude), createdAt: "", updatedAt: "")
         print("proceedWithAddingLocation() newStudentInfo \(newStudentInfo)")
         UdacityClient.addNewStudentLocation(newStudentLoc: newStudentInfo) { success, error in
             DispatchQueue.main.async {

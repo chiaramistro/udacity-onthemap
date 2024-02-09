@@ -108,11 +108,11 @@ class UdacityClient {
        task.resume()
     }
     
-    class func getUserData(userId: String, completion: @escaping (Bool, Error?) -> Void) {
+    class func getUserData(userId: String, completion: @escaping (User?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: Endpoints.userData(userId).url) { originalData, response, error in
             guard let originalData = originalData else {
                 print("Data not valid")
-                completion(false, error)
+                completion(nil, error)
                 return
             }
             let range = 5..<originalData.count
@@ -121,11 +121,10 @@ class UdacityClient {
             let decoder = JSONDecoder()
             do {
                 let userData = try decoder.decode(User.self, from: data)
-                UserModel.sharedInstance().user = userData
-                completion(true, nil)
+                completion(userData, nil)
             } catch {
                 print("Parsing not valid")
-                completion(false, error)
+                completion(nil, error)
             }
         }
         
