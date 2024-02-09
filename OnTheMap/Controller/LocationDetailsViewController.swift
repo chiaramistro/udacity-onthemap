@@ -89,7 +89,7 @@ class LocationDetailsViewController: UIViewController, MKMapViewDelegate {
                     // FIXME navigation
                 } else {
                     // FIXME custom response error
-                    self.presentAlert(message: "Some error occurred while adding new location")
+                    self.presentAlert(message: "Some error occurred while adding new location, please try again")
                 }
             }
         }

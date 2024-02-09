@@ -35,7 +35,11 @@ class LoginViewController: UIViewController {
             print("createSession() success \(success) \(UdacityClient.Auth.sessionId)")
             DispatchQueue.main.async {
                 self.setLoadingState(false)
-                self.performSegue(withIdentifier: "showHome", sender: nil)
+                if (success) {
+                    self.performSegue(withIdentifier: "showHome", sender: nil)
+                } else {
+                    self.presentAlert(message: error?.localizedDescription ?? "An error occurred during login, please try again")
+                }
             }
         }
     }
@@ -57,5 +61,12 @@ class LoginViewController: UIViewController {
         UIApplication.shared.open(UdacityClient.Endpoints.signUp.url, options: [:], completionHandler: nil)
     }
 
+    func presentAlert(message: String) {
+        setLoadingState(false)
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 

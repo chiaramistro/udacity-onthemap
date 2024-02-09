@@ -65,7 +65,13 @@ class UdacityClient {
                completion(true, nil)
            } catch {
                print("Parsing not valid")
-               completion(false, error)
+               do {
+                   let errorResponse = try decoder.decode(ErrorResponse.self, from: data)
+                   completion(false, errorResponse)
+               } catch {
+                   print("Error parsing not valid")
+                   completion(false, error)
+               }
            }
        }
        

@@ -45,7 +45,7 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
                 if (logoutSuccess) {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.showFailureAlert(message: "Some error occurred during logout")
+                    self.showFailureAlert(message: "Some error occurred during logout, please try again")
                 }
             }
         }

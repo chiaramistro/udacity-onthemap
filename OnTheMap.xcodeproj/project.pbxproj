@@ -18,6 +18,7 @@
 		E969A8ED2B695E5E0012EFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E969A8EB2B695E5E0012EFE4 /* LaunchScreen.storyboard */; };
 		E96BD2182B73CC7E0022BBEC /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BD2172B73CC7E0022BBEC /* LocationDetailsViewController.swift */; };
 		E96BD21C2B73D5090022BBEC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96BD21B2B73D5090022BBEC /* User.swift */; };
+		E9B1CC352B76688E001073F1 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B1CC342B76688E001073F1 /* ErrorResponse.swift */; };
 		E9B670CB2B6AA41000E97A1D /* MapTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B670CA2B6AA41000E97A1D /* MapTabViewController.swift */; };
 		E9B670CD2B6AA47D00E97A1D /* TableTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B670CC2B6AA47D00E97A1D /* TableTabViewController.swift */; };
 		E9EE9D242B6E406F000D467B /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE9D232B6E406F000D467B /* StudentInformation.swift */; };
@@ -43,6 +44,7 @@
 		E969A8EE2B695E5E0012EFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E96BD2172B73CC7E0022BBEC /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		E96BD21B2B73D5090022BBEC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E9B1CC342B76688E001073F1 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		E9B670CA2B6AA41000E97A1D /* MapTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabViewController.swift; sourceTree = "<group>"; };
 		E9B670CC2B6AA47D00E97A1D /* TableTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableTabViewController.swift; sourceTree = "<group>"; };
 		E9EE9D232B6E406F000D467B /* StudentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				E9EE9D302B6E47A1000D467B /* SessionResponse.swift */,
 				E9EE9D322B6E4F81000D467B /* AddNewStudentLocationResponse.swift */,
 				E9EE9D342B6E50BE000D467B /* UpdateStudentLocationResponse.swift */,
+				E9B1CC342B76688E001073F1 /* ErrorResponse.swift */,
 			);
 			path = "Udacity Responses";
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				E9EE9D292B6E41D7000D467B /* UdacityClient.swift in Sources */,
 				E96BD2182B73CC7E0022BBEC /* LocationDetailsViewController.swift in Sources */,
 				E9229C792B72781E00AA6DCF /* StudentTableViewCell.swift in Sources */,
+				E9B1CC352B76688E001073F1 /* ErrorResponse.swift in Sources */,
 				E969A8E32B695E5D0012EFE4 /* SceneDelegate.swift in Sources */,
 				E9EE9D2B2B6E42EA000D467B /* StudentLocationResponse.swift in Sources */,
 			);

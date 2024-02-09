@@ -49,14 +49,17 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
                 if (logoutSuccess) {
                     self.dismiss(animated: true, completion: nil)
                 } else {
-                    self.showFailureAlert(message: "Some error occurred during logout")
+                    self.showFailureAlert(message: "Some error occurred during logout, please try again")
                 }
             }
         }
     }
     
     func handleStudentLocations(studentLocations: [StudentInformation], error: Error?) {
-        // FIXME display error
+        if let error = error {
+            self.showFailureAlert(message: "Some error occurred while loading student locations, please try again")
+            return
+        }
         print("getStudentLocations result: \(studentLocations)")
         StudentsModel.sharedInstance().students = studentLocations
         self.loadLocations()

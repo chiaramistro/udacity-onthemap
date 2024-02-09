@@ -29,14 +29,14 @@ class AddLocationViewController: UIViewController {
         setLoadingState(true)
         
         if (linkField?.text?.isEmpty ?? true) {
-            presentAlert(message: "Link field is empty")
+            presentAlert(message: "The link field cannot be empty")
             return
         }
         
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(locationField?.text ?? "", completionHandler: {(placemarks, error) -> Void in
             if error != nil {
-                self.presentAlert(message: "Some error occurred during geocoding")
+                self.presentAlert(message: "Some error occurred during geocoding, please try again")
                 return
             }
             if let placemark = placemarks?.first {
