@@ -20,7 +20,16 @@ class AddLocationViewController: UIViewController {
     override func viewDidLoad() {
         print("AddLocationViewController viewDidLoad()")
         
+        // Set navigation bar preferences
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
         navigationItem.title = "Add Location"
+    }
+    
+    // MARK: - Navigation functions
+    
+    @objc func cancel() {
+        print("cancel()")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func onFindLocation(_ sender: Any) {

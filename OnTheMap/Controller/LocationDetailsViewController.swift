@@ -26,9 +26,18 @@ class LocationDetailsViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         
+        // Set navigation bar preferences
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
         navigationItem.title = "Add Location"
         
         loadNewLocation()
+    }
+    
+    // MARK: - Navigation functions
+    
+    @objc func cancel() {
+        print("cancel()")
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func loadNewLocation() {
@@ -70,8 +79,7 @@ class LocationDetailsViewController: UIViewController, MKMapViewDelegate {
                 if (userData != nil) {
                     self.proceedWithAddingLocation(user: userData!)
                 } else {
-                    // FIXME custom response error
-                    self.presentAlert(message: "Some error occurred while retrieving user info")
+                    self.presentAlert(message: "Some error occurred while retrieving user information, please try again")
                 }
             }
         }
