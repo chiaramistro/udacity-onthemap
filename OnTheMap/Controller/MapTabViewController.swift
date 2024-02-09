@@ -60,7 +60,7 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
     }
     
     func handleStudentLocations(studentLocations: [StudentInformation], error: Error?) {
-        if let error = error {
+        if let _ = error {
             self.showFailureAlert(message: "Some error occurred while loading student locations, please try again")
             return
         }

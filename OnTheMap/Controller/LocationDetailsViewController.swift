@@ -85,10 +85,8 @@ class LocationDetailsViewController: UIViewController, MKMapViewDelegate {
                 if (success) {
                     print("Location added successfully")
                     self.setLoadingState(false)
-                    self.dismiss(animated: true, completion: nil)
-                    // FIXME navigation
+                    self.navigationController?.popToRootViewController(animated: true)
                 } else {
-                    // FIXME custom response error
                     self.presentAlert(message: "Some error occurred while adding new location, please try again")
                 }
             }
