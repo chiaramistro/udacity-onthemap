@@ -39,7 +39,11 @@ class MapTabViewController: UIViewController, MKMapViewDelegate {
     
     @objc func refresh() {
         print("refresh()")
-        // TODO
+        UdacityClient.getStudentLocations { studentLocations, error in
+            DispatchQueue.main.async {
+                self.handleStudentLocations(studentLocations: studentLocations, error: error)
+            }
+        }
     }
     
     @objc func logout() {

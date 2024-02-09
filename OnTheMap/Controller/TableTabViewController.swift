@@ -11,6 +11,8 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         print("TableTabViewController viewDidLoad()")
         
@@ -35,7 +37,26 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @objc func refresh() {
         print("refresh()")
-        // TODO
+        setLoadingState(true)
+        StudentsModel.sharedInstance().students = []
+        tableView.reloadData()
+        
+        UdacityClient.getStudentLocations { studentLocations, error in
+            DispatchQueue.main.async {
+                self.handleStudentLocations(studentLocations: studentLocations, error: error)
+            }
+        }
+    }
+    
+    func handleStudentLocations(studentLocations: [StudentInformation], error: Error?) {
+        setLoadingState(false)
+        if let _ = error {
+            self.showFailureAlert(message: "Some error occurred while loading student locations, please try again")
+            return
+        }
+        print("getStudentLocations result: \(studentLocations)")
+        StudentsModel.sharedInstance().students = studentLocations
+        tableView.reloadData()
     }
     
     @objc func logout() {
@@ -55,6 +76,14 @@ class TableTabViewController: UIViewController, UITableViewDataSource, UITableVi
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setLoadingState(_ isLoading: Bool) {
+        if (isLoading) {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
     
     // MARK: - Table view delegate methods
